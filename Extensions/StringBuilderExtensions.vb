@@ -1,23 +1,31 @@
 ﻿Imports System.Text
 
-Public Module StringBuilderExtensions
+Public Module ChiaviDiRegistro
 
-#Region "METODI APPEND LINE"
+#Region "GET AND SET"
 
-    <System.Runtime.CompilerServices.Extension()>
-    Public Sub AppendLineFormat(ByRef sb As StringBuilder, format As String, ParamArray args() As Object)
+    Public Function setChiaveRegistro(Of T)(ByRef oMenu As CLE__MENU, ByRef DittaCorrente As String, ByRef progettoCDR As String,
+                                             pathProgettoCDR As String, ByRef _strChiave As T, nomeChiave As String,
+                                             ByRef mySettingChiave As String) As Boolean
         Try
+            Dim valore As String = oMenu.GetSettingBusDitt(DittaCorrente, progettoCDR, pathProgettoCDR, ".", nomeChiave, " ", " ", mySettingChiave)
 
-            sb.AppendLine(String.Format(format, args) & " ")
+            ' Controllo per evitare errori di conversione
+            valore = If(String.IsNullOrWhiteSpace(valore), mySettingChiave, valore)
+
+            ' Conversione generica per tipi che implementano IConvertible
+            _strChiave = CType(Convert.ChangeType(valore, GetType(T)), T)
+
+            Return True
 
         Catch ex As Exception
-            Dim strErr As String = $"Errore generato nel modulo {NameOf(StringBuilderExtensions)} " &
-                         $"nel Metodo {NameOf(AppendLineFormat)}. " &
+            Dim strErr As String = $"Errore generato nel modulo {NameOf(ChiaviDiRegistro)} " &
+                         $"nel Metodo {NameOf(setChiaveRegistro)}. " &
                          $"Errore: " & ex.Message
             Throw New Exception(strErr)
         End Try
+    End Function
 
-    End Sub
 
 #End Region
 

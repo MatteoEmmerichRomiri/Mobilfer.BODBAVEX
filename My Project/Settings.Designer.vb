@@ -56,25 +56,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("T")>  _
-        Public Property strTipoCaricoDiProduzione() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("PAR5110.rpt")>  _
+        Public Property nomeStampaRpt() As String
             Get
-                Return CType(Me("strTipoCaricoDiProduzione"),String)
+                Return CType(Me("nomeStampaRpt"),String)
             End Get
             Set
-                Me("strTipoCaricoDiProduzione") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property strSerieCaricoDiProduzione() As String
-            Get
-                Return CType(Me("strSerieCaricoDiProduzione"),String)
-            End Get
-            Set
-                Me("strSerieCaricoDiProduzione") = value
+                Me("nomeStampaRpt") = value
             End Set
         End Property
     End Class

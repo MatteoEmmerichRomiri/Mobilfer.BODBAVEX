@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="DocumentoDiMagazzino.vb" />
     <Compile Include="Extensions\StringBuilderExtensions.vb" />
+    <Compile Include="Extensions\ChiaviDiRegistro.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

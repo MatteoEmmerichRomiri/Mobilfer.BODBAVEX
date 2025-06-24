@@ -23,16 +23,14 @@ Public Class CLFDBAVEX
 #End Region
 
 #Region "VARIABILI"
-
     Public caricoProduzioneInternaCreato As New DocumentoDiMagazzino
-
 #End Region
 
 #Region "EVENTI"
     Public Event StampaCaricoDiPoduzione()
 #End Region
 
-
+#Region "STAMPA CARICO DI PRODUZIONE"
     Public Overrides Sub RecordVersa_AfterSalvaDoc(ByRef oCleBoll As CLEVEBOLL)
         Try
             MyBase.RecordVersa_AfterSalvaDoc(oCleBoll)
@@ -51,18 +49,8 @@ Public Class CLFDBAVEX
         Catch ex As Exception
             CLN__STD.GestErr(ex, Me, ex.Message)
         End Try
-
     End Sub
-
-    'Public Overrides Function ScriviTestmag(ByRef dtrTestord As DataRow, ByRef oCleBoll As CLEVEBOLL, ByRef strSerieDoc As String, ByRef lNumT As Integer, ByRef lNumU As Integer, nCausale As Integer, nCauscap As Integer, strDitta As String, strModello As String) As Boolean
-    '    Return MyBase.ScriviTestmag(dtrTestord, oCleBoll, strSerieDoc, lNumT, lNumU, nCausale, nCauscap, strDitta, strModello)
-    '    Try
-    '        Dim bResul As Boolean = MyBase.ScriviTestmag(dtrTestord, oCleBoll, strSerieDoc, lNumT, lNumU, nCausale, nCauscap, strDitta, strModello)
-
-    '    Catch ex As Exception
-    '        CLN__STD.GestErr(ex, Me, ex.Message)
-    '    End Try
-    'End Function
+#End Region
 
 #Region "GET CORPO DOCUMENTO"
 
